@@ -1,0 +1,43 @@
+1. 데이터베이스
+1) 관계형 데이터베이스(RDB) : MySQL, PostgreSQL, Oracle, MSSQL, DB2
+- 테이블 스키마 (행과 열, 엑셀)
+- SQL를 통해서 CRUD 처리를 함 (정합성)
+- DML, DDL, DCL
+- 중요한 정보를 다룰 때
+
+2) NoSQL(non SQL, Not Only SQL) : MongoDB
+- NoSQL : 단순 검색, 저장
+- 실시간으로 처리해야 하는 경우, 대용량 처리하는 경우
+- 다양한 형테의 데이터를 넣을 수 있음
+- 중요한 정보 다룰 때는 피해야 함
+
+2. MongoDB 설치
+- mongo --version
+- (Server) mongod --dbpath=data
+- (Client) mongo
+
+3. MongoDB Shell Command
+1) Database
+- db: 커렌트 db 보기
+- use "db명" : 커렌트 db를 "db명"으로 바꾸기
+- show dbs : 현재 데이터베이스 보기
+
+2) Collection
+- db.createCollection("컬렉션명") : 컬렉션 만들기
+- show collections : 현재 컬렉션 보기
+- db."컬렉션명".drop() : 컬렉션 삭제
+
+3) Document
+- db."컬렉션명".insert({..}) : 삽입
+- db."컬렉션명".find().pretty() : 조회
+- db."컬렉션명".find({조회조건}).limit(건수)
+- db."컬렉션명".find({},{_id: 0, singer:1, ..})
+- db."컬렉션명".update({조회조건}, {수정내용}) : 수정
+- db."컬렉션명".update({조회조건},{$set: {필드: 값}})
+- db."컬렉션명".remove({}) : 모두 삭제
+- db."컬렉션명".remove({삭제조건}) : 조건에 맞는 document 삭제
+- db.dropDatabase()
+
+4. MongoDB GUI Client : Compass 사용
+
+5. ODM (Object Document Mapping) 도구 : Mongoose

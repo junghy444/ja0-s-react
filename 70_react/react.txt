@@ -1,0 +1,82 @@
+1. React : 페이스북에서 만든 Javascript 기반의 프론트 엔드 라이브러리
+
+2. React 특징
+1) '컴포넌트'라고 불리는 작은 코드 조각을 이용하여 UI를 구성
+2) Virtual DOM (가상 DOM: Document Object Model) 사용
+ : 바뀐 데이터로 일단 그려놓고 비교를 한 다음에, 바뀐 부분만 리렌더링
+  ==> DOM의 변화를 최소화하여 성능을 높여줌
+3) JSX(Javascript XML) : HTML 문법과 비슷하게 작성하지만 Javascript
+ - const element = (<h1>Hello, React </h1>);
+4) 상태 관리, 라우팅, api통신을 위한 추가 라이브러리 사용
+
+3. React를 배우기 전에 필요한 내용들 (react.js)
+1) spread 연산자
+2) 비구조화 할당
+3) 불변성 유지
+4) import, export
+
+4. React 작업환경 준비
+- Node.js
+- Yarn : 개선된 버전의 npm
+- npx create-react-app 앱명
+
+5. JSX 규칙
+
+6. 리액트에서 다루는 데이터
+1) props: 부모 컴포넌트가 자식 컴포넌트에게 주는 값
+ - 자식 컴포넌트는 props를 받아오기만 할 수 있음, 바꾸는 순간 props의 의미가 없어짐 (read-only)
+2) state
+ - 컴포넌트 내부에서 선언하며 내부에서 값 변경 가능
+ - 리엑트 16.8 이전까지는 함수형 컴포넌트를 state를 ----------
+ - Hook이라는 기능이 도입
+
+7. 조건부 렌더링
+1) 조건에 따라 다른 결과물을 렌더링하는 경우 --> 삼항연산자
+2) 참이면 렌더링을 하고, 거짓이면 안 하는 경우 --> &&
+
+8. useRef() Hook
+1) DOM에 직접 접근하는 경우
+2) 리렌더링 없이 변경 가능한 데이터를 사용할 경우
+
+* 컴포넌트가 업데이트 되는 경우
+1) 부모 컴포넌트에서 넘겨주는 props가 변경될 때
+2) 컴포넌트 자신이 갖고 있는 state가 변경될 때
+3) 부모 컴포넌트가 리렌더링 될 때
+
+9. 배열 렌더링
+1) 조회
+2) 등록
+3) 삭제
+4) 수정
+
+10. useEffect
+ - 특정 시점에 특정 작업을 수행하고자 할 때
+ - 클래스 컴포넌트의 라이프사이클 메소드를 대체함
+ - useEffect(fn, [])
+ - useEffect에서 사용하는 props, state가 있다면 deps에 추가해주기 (동기화)
+
+11. useMemo
+
+
+12. useReducer : 상태를 업데이트하는 로직을 분리
+ - useState : 간단한 데이터 처리
+ - useReducer : 복잡한 데이터 처리
+function reducer(state, action){..}
+const [state, dispatch]=useReducer(reducer, dispatch({type:""}))
+
+13. Context: 프로젝트에서 전역적으로 사용할 수 있도록 관리
+1) createContext()로 Context 생성하기
+2) Context.Provider 컴포넌트에 value 값으로 설정
+3) useContext() hook을 사용해서 Context 값을 읽어오기
+
+14. API 연동하기
+ - npx create-react-app 72_api
+ - axios 설치 : yarn add axios
+ - json-server 설치 : yarn global add json-server
+ - music.json 작성
+ - json-server --watch music.json --port 5000
+ - MusicList, Music 컴포넌트 : useReducer로 구현
+
+15. react-async로 요청하기
+ - yarn add react-async
+ - MusicList, Music : react-async로 구현
